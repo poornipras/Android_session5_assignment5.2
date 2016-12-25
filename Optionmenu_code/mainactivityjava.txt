@@ -1,0 +1,54 @@
+package com.pooja.option_menu_code;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.SubMenu;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    private static final int CAMERA=0;
+    private static final int GAMEPAD=1;
+    private static final int VIDEO=2;
+    private  static final int EMAIL=3;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(0,CAMERA,0,"Camera");
+        menu.add(0,GAMEPAD,0,"Gamepad");
+        menu.add(0,VIDEO,0,"Video");
+        menu.add(0,EMAIL,0,"Email");
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if(item.getItemId()==CAMERA && item.getGroupId()==0)
+        {
+            Toast.makeText(MainActivity.this,"You have selected "+item.getTitle(),Toast.LENGTH_LONG).show();
+        }
+        else if(item.getItemId()==GAMEPAD && item.getGroupId()==0)
+        {
+            Toast.makeText(MainActivity.this,"You have selected "+item.getTitle(),Toast.LENGTH_LONG).show();
+        }
+        else if (item.getItemId()==VIDEO && item.getGroupId()==0)
+        {
+            Toast.makeText(MainActivity.this,"You have selected "+item.getTitle(),Toast.LENGTH_LONG).show();
+        }
+        else if(item.getItemId()==EMAIL && item.getGroupId()==0)
+        {
+            Toast.makeText(MainActivity.this,"You selected "+item.getTitle(),Toast.LENGTH_LONG).show();
+        }
+        return true;
+    }
+}
